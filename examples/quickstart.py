@@ -1,7 +1,8 @@
-"""Run the Tigerpass intersection with a random policy for one simulated hour."""
-import tigerpass_traffic as tp
+"""Run a scenario with a random policy for one simulated hour."""
+import mixed_traffic_sumo as mts
 
-env = tp.make_env(num_seconds=3600)
+print("Available scenarios:", mts.list_scenarios())
+env = mts.make_env("tigerpass", num_seconds=3600)
 obs, info = env.reset(seed=0)
 done = False
 while not done:

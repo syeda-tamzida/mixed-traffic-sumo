@@ -1,8 +1,8 @@
 """Fixed-time signal baseline: run the original signal plan and report average metrics."""
 import numpy as np
-import tigerpass_traffic as tp
+import mixed_traffic_sumo as mts
 
-env = tp.make_env(num_seconds=3600, fixed_ts=True)
+env = mts.make_env("tigerpass", num_seconds=3600, fixed_ts=True)
 env.reset(seed=0)
 waits, queues, speeds = [], [], []
 done = False

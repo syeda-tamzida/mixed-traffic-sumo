@@ -3,14 +3,14 @@ requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tigerpass-traffic"
-version = "0.1.0"
-description = "A real-world heterogeneous-traffic intersection (Chattogram, Bangladesh) for SUMO and reinforcement learning"
+name = "mixed-traffic-sumo"
+version = "0.2.0"
+description = "Real-world mixed (heterogeneous) traffic scenarios for SUMO and reinforcement-learning traffic signal control"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [{name = "Syeda Tamzida Akter"}]
 requires-python = ">=3.9"
-keywords = ["SUMO", "traffic simulation", "reinforcement learning", "traffic signal control", "heterogeneous traffic", "Bangladesh"]
+keywords = ["SUMO", "traffic simulation", "reinforcement learning", "traffic signal control", "heterogeneous traffic", "Bangladesh", "mixed traffic"]
 dependencies = ["sumo-rl>=1.4", "eclipse-sumo"]
 classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Topic :: Scientific/Engineering"]
 
@@ -19,10 +19,10 @@ train = ["stable-baselines3>=2.0"]
 test = ["pytest"]
 
 [project.urls]
-Homepage = "https://github.com/syeda-tamzida/tigerpass-mixed-traffic"
+Homepage = "https://github.com/syeda-tamzida/mixed-traffic-sumo"
 
 [tool.setuptools.packages.find]
-include = ["tigerpass_traffic*"]
+include = ["mixed_traffic_sumo*"]
 
 [tool.setuptools.package-data]
-tigerpass_traffic = ["scenarios/*"]
+mixed_traffic_sumo = ["scenarios/*/*"]

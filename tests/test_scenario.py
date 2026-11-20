@@ -1,22 +1,29 @@
 import os
 import xml.etree.ElementTree as ET
-import tigerpass_traffic as tp
+import pytest
+import mixed_traffic_sumo as mts
 
 
-def test_files_exist():
-    for path in tp.scenario_files().values():
+@pytest.mark.parametrize("name", mts.list_scenarios())
+def test_files_exist(name):
+    for path in mts.scenario_files(name).values():
         assert os.path.exists(path)
 
 
-def test_vehicle_mix_matches_route_file():
-    root = ET.parse(tp.ROUTE_FILE).getroot()
-    probs = [float(v.get("probability")) for v in root.iter("vType")]
-    assert len(probs) == 9
-    assert abs(sum(probs) - 1.0) < 1e-6
-    assert abs(sum(tp.VEHICLE_MIX.values()) - 1.0) < 1e-6
+@pytest.mark.parametrize("name", mts.list_scenarios())
+def test_vehicle_mix_matches_route_file(name):
+    root = ET.parse(mts.scenario_files(name)["route_file"]).getroot()
+    probs = sorted(float(v.get("probability")) for v in root.iter("vType"))
+    assert sorted(mts.scenario_info(name)["vehicle_mix"].values()) == pytest.approx(probs)
 
 
-def test_demand_matches_route_file():
-    root = ET.parse(tp.ROUTE_FILE).getroot()
+@pytest.mark.parametrize("name", mts.list_scenarios())
+def test_demand_matches_route_file(name):
+    root = ET.parse(mts.scenario_files(name)["route_file"]).getroot()
     flows = {f.get("route"): int(float(f.get("vehsPerHour"))) for f in root.iter("flow")}
-    assert flows == tp.DEMAND_VEH_PER_HOUR
+    assert flows == mts.scenario_info(name)["demand_veh_per_hour"]
+
+
+def test_unknown_scenario():
+    with pytest.raises(ValueError):
+        mts.scenario_files("nowhere")
