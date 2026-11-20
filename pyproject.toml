@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tigerpass-traffic"
+version = "0.1.0"
+description = "A real-world heterogeneous-traffic intersection (Chattogram, Bangladesh) for SUMO and reinforcement learning"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Syeda Tamzida Akter"}]
+requires-python = ">=3.9"
+keywords = ["SUMO", "traffic simulation", "reinforcement learning", "traffic signal control", "heterogeneous traffic", "Bangladesh"]
+dependencies = ["sumo-rl>=1.4", "eclipse-sumo"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Topic :: Scientific/Engineering"]
+
+[project.optional-dependencies]
+train = ["stable-baselines3>=2.0"]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/syeda-tamzida/tigerpass-mixed-traffic"
+
+[tool.setuptools.packages.find]
+include = ["tigerpass_traffic*"]
+
+[tool.setuptools.package-data]
+tigerpass_traffic = ["scenarios/*"]

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-11-20 16:11:47 by Eclipse SUMO netedit Version 1.23.1
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vTypeDistribution id="dist_common">
+        <vType id="bus" length="10.60" maxSpeed="16.66" vClass="bus" color="red" emissionClass="HBEFA3/HDV_D_EU0" probability="0.11"/>
+        <vType id="car" length="4.60" maxSpeed="16.66" color="cyan" emissionClass="HBEFA3/PC_G_EU2" probability="0.26"/>
+        <vType id="cng" length="2.70" maxSpeed="9.75" color="yellow" emissionClass="HBEFA3/PC_G_EU0" probability="0.22"/>
+        <vType id="motorcycle" maxSpeed="16.66" vClass="motorcycle" color="magenta" emissionClass="HBEFA4/MC_4S_le250cc_preEuro" probability="0.16"/>
+        <vType id="truck" length="7.50" maxSpeed="16.66" vClass="truck" color="green" emissionClass="HBEFA3/HDV_D_EU0" probability="0.05"/>
+        <vType id="cycle" length="1.8" maxSpeed="3.6" vClass="bicycle" color="#FB2192" emissionClass="HBEFA3/zero" probability="0.03"/>
+        <vType id="rickshaw" length="2.3" maxSpeed="5" vClass="bicycle" color="#B638EC" emissionClass="HBEFA3/zero" probability="0.06"/>
+        <vType id="tempu" length="2.7" maxSpeed="9.75" color="#097697" emissionClass="HBEFA3/PC_G_EU0" probability="0.04"/>
+        <vType id="human_howler" length="5" maxSpeed="13.88" color="#BAEE52" emissionClass="HBEFA3/HDV_D_EU0" probability="0.07"/>
+    </vTypeDistribution>
+
+    <!--setting routes-->
+    <route id="w_n" edges="west_in north_out"/>
+    <route id="w_s" edges="west_in south_out"/>
+    <route id="w_e" edges="west_in east_out"/>
+    <route id="e_n" edges="east_in north_out"/>
+    <route id="e_s" edges="east_in south_out"/>
+    <route id="e_w" edges="east_in west_out"/>
+    <route id="s_n" edges="south_in north_out"/>
+    <route id="s_e" edges="south_in east_out"/>
+    <route id="s_w" edges="south_in west_out"/>
+    <route id="n_s" edges="north_in south_out"/>
+    <route id="n_e" edges="north_in east_out"/>
+    <route id="n_w" edges="north_in west_out"/>
+
+
+    <flow id="flow_n_s" type="dist_common" route="n_s" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="534"/>
+    <flow id="flow_n_e" type="dist_common" route="n_e" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="395"/>
+    <flow id="flow_n_w" type="dist_common" route="n_w" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="346"/>
+
+    <flow id="flow_e_w" type="dist_common" route="e_w" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="346"/>
+    <flow id="flow_e_s" type="dist_common" route="e_s" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="316"/>
+    <flow id="flow_e_n" type="dist_common" route="e_n" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="314"/>
+
+    <flow id="flow_s_n" type="dist_common" route="s_n" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="585"/>
+    <flow id="flow_s_w" type="dist_common" route="s_w" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="226"/>
+    <flow id="flow_s_e" type="dist_common" route="s_e" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="454"/>
+
+    <flow id="flow_w_n" type="dist_common" route="w_n" begin="0.00" departLane="random" departSpeed="random" arrivalLane="random" end="100000" vehsPerHour="274"/>
+
+</routes>
